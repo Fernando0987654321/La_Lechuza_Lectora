@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+
+    <header class="navbar-minimal">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+    </header>
+
+    <main class="main-content form-main">
+        <div class="background-overlay" style="filter: brightness(0.6);"></div>
+
+        <div class="form-card login-card">
+            <div class="center-logo-box">
+                <img src="main-logo.png" alt="Logo Central" class="main-logo">
+                <p class="slogan">Historias que te hacen</p>
+            </div>
+            
+            <form class="login-form">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" required>
+
+                <button type="submit" class="btn-primary">Iniciar sesion</button>
+            </form>
+
+            <button class="btn-admin-switch">Administrativo</button>
+            
+            <div class="login-actions">
+                <button class="btn-create-account">Crear cuenta</button>
+                <button class="btn-forgot-password">Olvido la contraseña?</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">...</footer>
+
+</body>
+</html>
