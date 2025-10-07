@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contactButton.addEventListener('click', () => {
             // Navega a la página de contacto.html.
             // La ruta es directa porque 'contacto.html' y 'ayuda.html' están en la misma carpeta ('html/').
-            window.location.href = 'contacto.html';
+            window.location.href = 'Contacto.html';
         });
     }
 });
