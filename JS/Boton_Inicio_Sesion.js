@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // RUTA CORREGIDA para la carpeta 'Inicio de sesion' y el archivo 'inicio_sesion.html'
     // Esta ruta es relativa a las páginas HTML que lo llaman (ej. acerca-de.html)
-    const userLoginURL = 'html/Inicio_de_sesion/inicio_sesion.html';
+    const userLoginURL = '';
 
     headerLoginButtons.forEach(button => {
         if (button.textContent.trim() === 'Iniciar Sesión') {
@@ -20,11 +20,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
-    // --- 2. Lógica para Administrador (Eliminada temporalmente) ---
-    // Si necesitas agregar la funcionalidad de administrador más tarde, 
-    // puedes volver a añadir aquí el código de redirección.
-
-    // Nota: El botón "Iniciar sesion" en la página de login de usuario 
-    // no necesita JS en este momento, ya que solo procesará el formulario (backend).
 });
