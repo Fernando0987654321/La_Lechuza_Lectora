@@ -1,40 +1,66 @@
 // Archivo: Js/loginRedirect.js
-// Este módulo maneja la redirección del botón "Iniciar Sesión" (desde el header)
-// y añade la funcionalidad de cancelación en el formulario de login.
+// Este módulo maneja todas las redirecciones relacionadas con el flujo de inicio de sesión.
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // RUTA DE LOGIN DE USUARIO: Desde el index.html (raíz), la ruta es Inicio de sesion/...
-    const userLoginURL = 'html\Logeado\Pagina_principal.html';
+    // =========================================================================
+    // RUTAS FIJAS DEL FLUJO (¡Calculadas desde la ubicación del formulario de login!)
+    // Asumimos que el formulario está en /html/Inicio_de_sesion/inicio_sesion.html
+    // =========================================================================
     
-    // RUTA DE CANCELACIÓN: Debe regresar a la página de inicio (index.html)
-    // El archivo de login está en /html/Inicio de sesion/. Para llegar a index.html (raíz),
-    // la ruta relativa es: "../../index.html"
-    const cancelURL = '../../index.html'; 
+    // 1. RUTA AL FORMULARIO DE LOGIN (Usada por el botón del header)
+    // Desde el index.html (raíz) el destino es: html/Inicio_de_sesion/inicio_sesion.html
+    const TO_LOGIN_FORM_URL = 'html/Inicio_de_sesion/inicio_sesion.html'; 
 
-    // --- 1. Redirección desde el Header (Botón 'Iniciar Sesión') ---
+    // 2. RUTA DE CANCELACIÓN: Regresa a index.html (raíz)
+    const TO_CANCEL_URL = '../../index.html'; 
+
+    // 3. RUTA DE ÉXITO: Redirige a la página principal logeada.
+    // Destino: /html/logeado/Pagina_principal.html
+    const TO_SUCCESS_PAGE_URL = '../../html/logeado/Pagina_principal.html';
+
+
+    // -------------------------------------------------------------------------
+    // 1. Redirección desde el Header (Botón 'Iniciar Sesión') -> ENVÍA AL FORMULARIO
+    // -------------------------------------------------------------------------
     const headerLoginButtons = document.querySelectorAll('.btn-primary');
     
     headerLoginButtons.forEach(button => {
-        if (button.textContent.trim() === 'Iniciar Sesión') {
+        // CORRECCIÓN: Usamos toLowerCase() para ignorar si es 'Sesión' o 'sesión'.
+        if (button.textContent.trim().toLowerCase() === 'iniciar sesión') {
             button.addEventListener('click', () => {
-                window.location.href = userLoginURL;
+                // Si el script se ejecuta en la raíz (index.html), esta URL es correcta.
+                window.location.href = TO_LOGIN_FORM_URL;
             });
         }
     });
 
-    // --- 2. Funcionalidad del Botón 'Cancelar' ---
-    // Este botón se encuentra en la página de inicio de sesión de usuario.
+    // -------------------------------------------------------------------------
+    // 2. Funcionalidad del Botón 'Cancelar' -> REGRESA AL INDEX SIN SESIÓN
+    // -------------------------------------------------------------------------
     const cancelButton = document.querySelector('.btn-cancel');
 
     if (cancelButton) {
         cancelButton.addEventListener('click', () => {
-            // Redirige a la página de inicio sin sesión (index.html)
-            window.location.href = cancelURL;
+            // Esta ruta funciona para regresar del formulario a la raíz.
+            window.location.href = TO_CANCEL_URL;
         });
     }
 
-    // Nota: Lógica para Administrador (Eliminada temporalmente)
-    // Si necesitas agregar la funcionalidad de administrador, deberás actualizar la sección 2.
+    // -------------------------------------------------------------------------
+    // 3. SIMULACIÓN de ÉXITO de Login (Botón 'Iniciar sesión' DENTRO del formulario)
+    // -------------------------------------------------------------------------
+    const loginSubmitButton = document.querySelector('.login-action-buttons .btn-primary');
+
+    // Nos aseguramos de que el botón exista y tenga el texto correcto (caso sensible)
+    if (loginSubmitButton && loginSubmitButton.textContent.trim().toLowerCase() === 'iniciar sesión') {
+        loginSubmitButton.addEventListener('click', (event) => {
+            event.preventDefault(); // IMPORTANTE: Previene el submit real del formulario
+            
+            // Redirige a la página principal logeada
+            console.log("Simulando login exitoso. Redirigiendo a:", TO_SUCCESS_PAGE_URL);
+            window.location.href = TO_SUCCESS_PAGE_URL;
+        });
+    }
 
 });
