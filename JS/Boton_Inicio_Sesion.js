@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // RUTA CORREGIDA para la carpeta 'Inicio de sesion' y el archivo 'inicio_sesion.html'
     // Esta ruta es relativa a las páginas HTML que lo llaman (ej. acerca-de.html)
-    const userLoginURL = '';
+    const userLoginURL = 'html/Inicio_de_sesion/Inicio_sesion.html';
 
     headerLoginButtons.forEach(button => {
         if (button.textContent.trim() === 'Iniciar Sesión') {
