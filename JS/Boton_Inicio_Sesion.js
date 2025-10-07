@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Redirección desde el Header (Botón 'Iniciar Sesión') ---
     // Este botón se encuentra en el navbar de las páginas públicas (acerca-de, ayuda, etc.).
     const headerLoginButtons = document.querySelectorAll('.btn-primary');
-    const userLoginURL = '../';
+    const userLoginURL = 'html/Inicio de sesion/inicio_sesion.html';
 
     headerLoginButtons.forEach(button => {
         if (button.textContent.trim() === 'Iniciar Sesión') {
