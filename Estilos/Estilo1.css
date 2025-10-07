@@ -2174,3 +2174,28 @@ a { text-decoration: none; color: inherit; }
         max-width: 150px;
     }
 }
+
+/* --- Agrupación de Botones en Login --- */
+
+.login-action-buttons {
+    display: flex; /* Habilita el layout flexible */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 30px; /* Separa del campo de contraseña */
+    margin-bottom: 10px; /* Espacio antes del botón administrativo */
+}
+
+.login-action-buttons button {
+    flex: 1; /* Hace que cada botón ocupe el mismo espacio (mitad y mitad) */
+    width: auto; /* Anula el 100% de ancho forzado en .form-card button */
+    margin: 0; /* Elimina márgenes superiores innecesarios */
+    padding: 10px 15px; /* Ajusta el padding para que se vean más compactos */
+}
+
+/* Ajuste específico para el botón administrativo, si no es parte del grupo */
+.btn-admin-switch {
+    /* Si quieres el botón administrativo justo debajo de los otros */
+    display: block; 
+    width: 100%; /* Para que ocupe todo el ancho bajo los otros dos */
+    text-align: center;
+    margin-top: 10px; /* Separación */
+}

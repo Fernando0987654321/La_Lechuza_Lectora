@@ -1,23 +1,21 @@
-// Archivo: Js/loginRedirect.js
-// Este módulo maneja la redirección del botón "Iniciar Sesión" (desde el header)
-// para el flujo de usuario normal.
+// Archivo: Js/adminRedirect.js
+// Este módulo maneja la redirección del botón "Administrativo"
+// en la página de inicio de sesión de usuario.
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Redirección desde el Header (Botón 'Iniciar Sesión') ---
-    // Este botón se encuentra en el navbar de las páginas públicas (acerca-de, ayuda, etc.).
-    const headerLoginButtons = document.querySelectorAll('.btn-admin-switch');
+    // 1. Selector del Botón 'Administrativo'
+    // El botón se identifica por su clase: .btn-admin-switch
+    const adminSwitchButton = document.querySelector('.btn-admin-switch');
     
-    // RUTA CORREGIDA para la carpeta 'Inicio de sesion' y el archivo 'inicio_sesion.html'
-    // Esta ruta es relativa a las páginas HTML que lo llaman (ej. acerca-de.html)
-    const userLoginURL = 'html/Inicio_de_sesion/Inicio_sesion_admin.html';
+    // RUTA DE DESTINO: Asumimos que el archivo 'inicio_sesion_admin.html' está en la misma carpeta 
+    // que el archivo 'inicio_sesion.html'.
+    const adminLoginURL = 'inicio_sesion_admin.html';
 
-    headerLoginButtons.forEach(button => {
-        if (button.textContent.trim() === 'Iniciar Sesión') {
-            button.addEventListener('click', () => {
-                // Redirige a la página de selección de login de usuario.
-                window.location.href = userLoginURL;
-            });
-        }
-    });
+    if (adminSwitchButton) {
+        adminSwitchButton.addEventListener('click', () => {
+            // Redirige a la página de inicio de sesión para el Administrador.
+            window.location.href = adminLoginURL;
+        });
+    }
 });
